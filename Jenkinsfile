@@ -15,7 +15,7 @@ node {
    }
    stage('SonarQube analysis') {
       // ** NOTE: This 'SonarQube Scanner 3' tool must be configured in the global configuration.
-      def scannerHome = tool 'SonarQube Scanner 3';
+      def scannerHome = tool 'SonarQube Scanner 3', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
        withSonarQubeEnv('local sonar qube') {
         sh "${scannerHome}/bin/sonar-scanner"
       }
